@@ -45,9 +45,13 @@ export default function Footer() {
             <h4 className="font-clash font-semibold text-sm text-white uppercase tracking-[0.15em]">Contact Us</h4>
             <ul className="flex flex-col gap-4 font-satoshi text-white/40 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-white/30 shrink-0 mt-0.5" />
-                <span>123 Luxury Avenue, Design District, NY 10001</span>
-              </li>
+  <MapPin size={16} className="text-white/30 shrink-0 mt-0.5" />
+  <span>
+    DCODE SHOPPY <br />
+    Gobichettipalayam, Tamil Nadu <br />
+    India
+  </span>
+</li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-white/30 shrink-0" />
                 <span>+1 (555) 123-4567</span>
