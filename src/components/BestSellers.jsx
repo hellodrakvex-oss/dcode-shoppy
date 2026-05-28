@@ -73,7 +73,7 @@ export default function BestSellers() {
                     {product.name}
                   </h3>
                   <span className="text-white/60 font-satoshi text-md mt-1">
-                    {product.price}
+                    ₹{product.price}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">

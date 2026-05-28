@@ -35,7 +35,7 @@ export default function ProductPage() {
 
   const handleWhatsApp = () => {
     const message = `Hi DCODE SHOPPY, I'm interested in customizing my order for ${product.name}.`;
-    const url = `https://wa.me/919740676514?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/919746076514?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 
@@ -103,7 +103,7 @@ export default function ProductPage() {
               </h1>
 
               <p className="text-3xl text-brand-gold font-satoshi mb-8">
-                ${product.price}
+                ₹{product.price}
               </p>
 
               <p className="text-lg text-white/60 font-satoshi leading-relaxed mb-10">
