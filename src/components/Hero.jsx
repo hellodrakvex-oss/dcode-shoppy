@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
-
+import { Link } from "react-router-dom";
 export default function Hero() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -206,74 +206,74 @@ export default function Hero() {
             "
           >
 
-            <button
-              className="
-                flex
-                items-center
-                gap-3
-                px-8
-                md:px-10
-                py-4
-                md:py-5
-                rounded-full
-                bg-white
-                text-black
-                font-semibold
-                hover:bg-brand-gold
-                transition-all
-                duration-300
-                hover:scale-[1.02]
-              "
-            >
-              <MessageCircle size={20} />
-              <span
+           <a
+  href="https://wa.me/919746076514?text=Hi%20DCODE%20SHOPPY,%20I%20want%20to%20place%20an%20order"
+  target="_blank"
+  rel="noopener noreferrer"
   className="
-    text-base
-    md:text-lg
+    flex
+    items-center
+    gap-3
+    px-8
+    md:px-10
+    py-4
+    md:py-5
+    rounded-full
+    bg-white
+    text-black
     font-semibold
-    tracking-wide
-    relative
-    z-10
+    hover:bg-brand-gold
+    transition-all
+    duration-300
+    hover:scale-[1.02]
   "
 >
-                Order on WhatsApp
-              </span>
-            </button>
+  <MessageCircle size={20} />
 
-            <button
-              className="
-                flex
-                items-center
-                gap-3
-                px-8
-                md:px-10
-                py-4
-                md:py-5
-                rounded-full
-                border
-                border-white/10
-                bg-black/40
-                text-white
-                hover:bg-white/10
-                transition-all
-                duration-300
-                group
-              "
-            >
-              <span className="text-base md:text-lg">
-                Explore Collection
-              </span>
+  <span
+    className="
+      text-base
+      md:text-lg
+      font-semibold
+      tracking-wide
+      relative
+      z-10
+    "
+  >
+    Order on WhatsApp
+  </span>
+</a>
 
-              <ArrowRight
-                size={20}
-                className="
-                  transition-transform
-                  duration-300
-                  group-hover:translate-x-1
-                "
-              />
-            </button>
+            <Link
+  to="/collections"
+  className="
+    flex
+    items-center
+    gap-3
+    px-8
+    md:px-10
+    py-4
+    md:py-5
+    rounded-full
+    border
+    border-white/10
+    bg-black/40
+    text-white
+    hover:bg-white/10
+    transition-all
+    duration-300
+    group
+  "
+>
+  <span className="text-base md:text-lg">
+    Explore Collection
+  </span>
 
+  <ArrowRight
+    size={20}
+    className="group-hover:translate-x-1 transition-transform duration-300"
+  />
+</Link>
           </motion.div>
         </motion.div>
       </div>
