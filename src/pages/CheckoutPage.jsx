@@ -95,7 +95,7 @@ export default function CheckoutPage() {
 
               <div className="flex justify-between items-center mb-8">
                 <span className="text-lg font-medium text-white">Amount to Pay</span>
-                <span className="text-3xl font-clash font-bold text-brand-gold">${cartTotal.toFixed(2)}</span>
+                <span className="text-3xl font-clash font-bold text-brand-gold">₹{cartTotal.toFixed(2)}</span>
               </div>
 
               <div className="flex items-center gap-2 text-white/40 text-sm mb-6 justify-center">
