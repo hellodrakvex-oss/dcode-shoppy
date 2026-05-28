@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Lenis from 'lenis';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Categories from './components/Categories';
-import BestSellers from './components/BestSellers';
-import Stats from './components/Stats';
-import Testimonials from './components/Testimonials';
-import InstagramShowcase from './components/InstagramShowcase';
-import WhatsAppCTA from './components/WhatsAppCTA';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import CollectionPage from './pages/CollectionPage';
+import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import SuccessPage from './pages/SuccessPage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {
@@ -41,13 +42,15 @@ function App() {
       <div className="relative z-10">
         <Navbar />
         <main>
-          <Hero />
-          <Categories />
-          <BestSellers />
-          <Stats />
-          <Testimonials />
-          <InstagramShowcase />
-          <WhatsAppCTA />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/collections" element={<CollectionPage />} />
+            <Route path="/product/:slug" element={<ProductPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/success" element={<SuccessPage />} />
+          </Routes>
         </main>
         <Footer />
       </div>

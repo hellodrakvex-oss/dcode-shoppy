@@ -1,41 +1,10 @@
 import { motion } from 'framer-motion';
 import { ShoppingCart, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { products } from '../data/products';
 
 export default function BestSellers() {
-  const products = [
-    {
-      id: 1,
-      name: "Luxury LED Frame",
-      price: "$149.99",
-      rating: 4.9,
-      reviews: 128,
-      img: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 2,
-      name: "Premium Gold Bouquet",
-      price: "$89.99",
-      rating: 4.8,
-      reviews: 96,
-      img: "https://images.unsplash.com/photo-1591886960571-74d43a9d4166?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      name: "Custom Acrylic Award",
-      price: "$199.99",
-      rating: 5.0,
-      reviews: 45,
-      img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      id: 4,
-      name: "Memory Keepsake Box",
-      price: "$129.99",
-      rating: 4.7,
-      reviews: 210,
-      img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop"
-    }
-  ];
+  const bestSellers = products.slice(0, 4);
 
   return (
     <section  id="best-sellers" className="py-32 relative z-10 bg-[#050505] border-y border-white/5">
@@ -54,19 +23,23 @@ export default function BestSellers() {
               Our most sought-after creations.
             </p>
           </motion.div>
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white/80 hover:text-brand-gold uppercase tracking-[0.2em] text-xs font-semibold border-b border-white/20 pb-2 w-fit transition-all hover:border-brand-gold"
           >
-            View Full Collection
-          </motion.button>
+            <Link
+              to="/collections"
+              className="text-brand-gold tracking-[0.25em] uppercase text-sm hover:text-white transition-all duration-300"
+            >
+              View Full Collection
+            </Link>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {products.map((product, idx) => (
+          {bestSellers.map((product, idx) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 30 }}
@@ -87,10 +60,10 @@ export default function BestSellers() {
                 
                 {/* Add to Cart Overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out flex justify-center z-20">
-                  <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-medium text-sm hover:bg-brand-gold transition-colors w-full justify-center">
+                  <Link to={`/product/${product.slug}`} className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-medium text-sm hover:bg-brand-gold transition-colors w-full justify-center">
                     <ShoppingCart size={16} />
-                    Acquire Now
-                  </button>
+                    View Product
+                  </Link>
                 </div>
               </div>
 

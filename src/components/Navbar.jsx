@@ -1,11 +1,23 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import { cn } from '../lib/utils';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { cartCount } = useCart();
+  const [animateBadge, setAnimateBadge] = useState(false);
+
+  useEffect(() => {
+    if (cartCount > 0) {
+      setAnimateBadge(true);
+      const timer = setTimeout(() => setAnimateBadge(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [cartCount]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,23 +38,28 @@ export default function Navbar() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out',
-        scrolled ? 'py-4' : 'py-6'
+        scrolled ? 'py-4' : 'py-6 md:py-8'
       )}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div
           className={cn(
             'flex items-center justify-between rounded-full px-6 py-4 transition-all duration-300',
-            scrolled ? 'glass-gold' : 'bg-transparent'
+            scrolled ? 'glass-gold border border-white/5' : 'bg-transparent'
           )}
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 z-50">
+  <Link to="/" className="flex items-center gap-2 z-50">
   <img
     src="/logo.jpeg"
     alt="DCODE SHOPPY"
-    className="h-12 w-auto object-contain"
-  />
+    className="h-12 w-auto object-contain
+    drop-shadow-[0_0_18px_rgba(212,175,55,0.45)]
+    hover:scale-105
+    transition-all
+    duration-500"
+  /></Link>
 </a>
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
@@ -60,10 +77,22 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-4 z-50">
-            <button className="relative p-2 text-white hover:text-brand-gold transition-colors">
+            <Link to="/cart" className="relative p-2 text-white hover:text-brand-gold transition-colors">
               <ShoppingBag size={20} />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-brand-neon rounded-full animate-pulse"></span>
-            </button>
+              <AnimatePresence>
+                {cartCount > 0 && (
+                  <motion.span 
+                    key="badge"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: animateBadge ? 1.2 : 1 }}
+                    exit={{ scale: 0 }}
+                    className="absolute -top-1 -right-1 flex items-center justify-center min-w-[18px] h-[18px] bg-brand-gold text-black text-[10px] font-bold rounded-full px-1"
+                  >
+                    {cartCount}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </Link>
             <button
               className="md:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
