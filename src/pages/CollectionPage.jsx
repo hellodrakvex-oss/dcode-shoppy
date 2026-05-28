@@ -140,14 +140,36 @@ export default function CollectionPage() {
             <h2 className="text-3xl md:text-5xl font-clash font-bold text-white mb-8">
               Can't find the perfect gift?
             </h2>
-            <Link
-              to="https://wa.me/919746076514?text=Hi%20DCODE%20SHOPPY,%20I%20want%20to%20place%20an%20order"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-10 py-5 bg-brand-gold text-black font-semibold rounded-full text-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all duration-300 transform hover:scale-[1.02]"
-            >
-              Create Custom Order
-            </Link>
+            <a
+  href="https://wa.me/919746076514?text=Hi%20DCODE%20SHOPPY,%20I%20want%20to%20place%20an%20order"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    w-full
+    sm:w-auto
+    px-6
+    sm:px-10
+    py-4
+    sm:py-5
+    bg-brand-gold
+    text-black
+    font-semibold
+    text-sm
+    sm:text-lg
+    rounded-full
+    whitespace-nowrap
+    flex
+    items-center
+    justify-center
+    hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]
+    transition-all
+    duration-300
+    transform
+    hover:scale-[1.02]
+  "
+>
+  Create Custom Order
+</a>
           </div>
         </motion.div>
       </div>
