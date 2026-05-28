@@ -40,7 +40,7 @@ export default function WhatsAppCTA() {
           <div className="absolute inset-0 rounded-full bg-[#25D366]/5 blur-2xl" />
 
           <motion.a
-            href="https://wa.me/"
+            href="https://wa.me/919746076514?text=Hi%20DCODE%20SHOPPY,%20I'm%20interested%20in%20customizing%20my%20order."
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.06 }}
